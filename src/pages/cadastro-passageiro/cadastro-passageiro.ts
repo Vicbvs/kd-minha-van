@@ -53,6 +53,7 @@ export class CadastroPassageiroPage {
         usuario.uid = authState.uid
         this.userService.criaUsuario(usuario)
       })
+      .catch(erro=> console.log(erro))
   }
 
   ionViewDidLoad() {
