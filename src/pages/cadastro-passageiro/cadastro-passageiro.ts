@@ -48,8 +48,10 @@ export class CadastroPassageiroPage {
       email: usuario.email,
       senha: usuario.senha
     }) //Adiciona no banco depois de criar
-      .then(() => {
-        this.userService.criaUsuario(this.formCadastro.value)
+      .then(authState => {
+        delete usuario.senha;
+        usuario.uid = authState.uid
+        this.userService.criaUsuario(usuario)
       })
   }
 

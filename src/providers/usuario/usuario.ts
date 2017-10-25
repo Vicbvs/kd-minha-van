@@ -23,6 +23,6 @@ export class UsuarioProvider {
   }
 
   criaUsuario(user: Usuario) {
-    return this.usuario.push(user)
+    return this.usuario.set(user.uid, user);
   }
 }
