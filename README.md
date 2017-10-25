@@ -1,26 +1,29 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+# Cadê Minha Van
 
-## How to use this template
+Aplicativo desenvolvido como projeto interdisciplinar no curso de Análise e Desenvolvimento de Sistemas (ADS) na faculdade UNA Campus Barro Preto Belo Horizonte.
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
+## Objetivo do projeto
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
+Permitir o usuário (passageiro) localizar um serviço transporte coletivo particular (Vans) para seu uso diário, e também saber a localização e tempo estimado de chegada ao seu local de embarque.
 
-### With the Ionic CLI:
+Permitir aos prestadores de serviço de transporte divulgar os serviços oferecidos, traçar rotas até a localização dos passageiros e controle de embarque dos passageiros.
 
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
+## Para rodar o este projeto
 
-```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myBlank blank
+1 - Instar dependências
+
+```
+npm install
 ```
 
-Then, to run it, cd into `myBlank` and run:
+2 - Rodar no celular ou emulador 
 
-```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
+```
+ionic cordova run android
 ```
 
-Substitute ios for android if not on a Mac.
+3 - Rodar no browser
 
+```
+ionic serve
+```
