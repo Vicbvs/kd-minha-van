@@ -1,3 +1,4 @@
+import { AuthProvider } from './../../providers/auth/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -18,7 +19,10 @@ export class LoginPage {
 
   formLogin: FormGroup;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public formBuilder: FormBuilder) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public formBuilder: FormBuilder,
+    public authService: AuthProvider) {
 
     let emailReg = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
     
@@ -32,8 +36,14 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
   fazerLogin() {
-    console.log(this.formLogin.value);
-    
+    let credenciais = {
+      email: this.formLogin.value.email,
+      senha: this.formLogin.value.senha
+     }
+
+    this.authService.entrarComEmail(credenciais)
+    .then(res => console.log(res))
+    .catch(res => console.log(res))
   }
 
 }
