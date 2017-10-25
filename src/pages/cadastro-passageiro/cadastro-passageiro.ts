@@ -33,6 +33,9 @@ export class CadastroPassageiroPage {
       telefone: [ '', [ Validators.required, Validators.minLength(9) ] ]
     });
   }
-
+  fazerCadastro() {
+    console.log(this.formCadastro.value);
+    
+  }
 
 }
