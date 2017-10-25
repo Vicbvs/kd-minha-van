@@ -19,13 +19,13 @@ export class LoginPage {
 
   formLogin: FormGroup;
 
-  constructor(public navCtrl: NavController, 
-    public navParams: NavParams, 
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
     public formBuilder: FormBuilder,
     public authService: AuthProvider) {
 
     let emailReg = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
-    
+
     this.formLogin = this.formBuilder.group({
       email: [ '', [ Validators.compose([ Validators.required, Validators.pattern(emailReg) ]) ] ],
       senha: [ '', [ Validators.required, Validators.minLength(6) ] ],
@@ -39,11 +39,15 @@ export class LoginPage {
     let credenciais = {
       email: this.formLogin.value.email,
       senha: this.formLogin.value.senha
-     }
+    }
 
     this.authService.entrarComEmail(credenciais)
-    .then(res => console.log(res))
-    .catch(res => console.log(res))
+      .then(res => {
+        if (res) {
+          this.navCtrl.setRoot('PassageiroInicialPage', { nome: credenciais.email })
+        }
+      })
+      .catch(res => console.log(res))
   }
 
 }

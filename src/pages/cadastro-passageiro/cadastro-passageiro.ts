@@ -52,6 +52,7 @@ export class CadastroPassageiroPage {
         delete usuario.senha;
         usuario.uid = authState.uid
         this.userService.criaUsuario(usuario)
+        this.navCtrl.setRoot('PassageiroInicialPage', { nome: usuario.nome })
       })
       .catch(erro=> console.log(erro))
   }

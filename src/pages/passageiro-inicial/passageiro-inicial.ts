@@ -15,11 +15,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class PassageiroInicialPage {
 
+  nome: string;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PassageiroInicialPage');
+    this.nome = this.navParams.get('nome');
   }
 
 }
