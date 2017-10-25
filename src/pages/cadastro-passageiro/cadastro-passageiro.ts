@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 /**
  * Generated class for the CadastroPassageiroPage page.
@@ -15,11 +16,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CadastroPassageiroPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  formCadastro: FormGroup;
+
+
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+    public formBuilder: FormBuilder) {
+
+    let emailReg = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
+
+    this.formCadastro = this.formBuilder.group({
+
+      nome: [ '', [ Validators.required, Validators.minLength(3) ] ],
+      email: [ '', [ Validators.compose([ Validators.required, Validators.pattern(emailReg) ]) ] ],
+      senha: [ '', [ Validators.required, Validators.minLength(6) ] ],
+      telefone: [ '', [ Validators.required, Validators.minLength(9) ] ]
+    });
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CadastroPassageiroPage');
-  }
 
 }

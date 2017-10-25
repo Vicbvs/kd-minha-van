@@ -7,27 +7,28 @@
 </ion-header>
 
 <ion-content padding>
-  
-  <ion-item>
-    <ion-label>Nome: </ion-label>
-    <ion-input type="text" name="nome"></ion-input>
-  </ion-item>
+  <form [formGroup]="formCadastro" (ngSubmit)="fazerCadastro(); $event.preventDefault()">
+    <ion-item>
+      <ion-label>Nome: </ion-label>
+      <ion-input type="text" name="nome" formControlName="nome"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label>Email: </ion-label>
-    <ion-input type="email" name="nome"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label>Email: </ion-label>
+      <ion-input type="email" name="email" formControlName="email"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label>Telefone: </ion-label>
-    <ion-input type="tel" name="nome"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-label>Telefone: </ion-label>
+      <ion-input type="tel" name="telefone"formControlName="telefone"></ion-input>
+    </ion-item>
 
-  <ion-item>
-    <ion-label>Senha: </ion-label>
-    <ion-input type="password" name="nome"></ion-input>
-  </ion-item>
-<p>
-  <button ion-button block>Cadastrar</button>
-</p>
+    <ion-item>
+      <ion-label>Senha: </ion-label>
+      <ion-input type="password" name="senha" formControlName="senha"></ion-input>
+    </ion-item>
+    <p>
+      <button ion-button block type="submit" [disabled]="formCadastro.invalid">Cadastrar</button>
+    </p>
+  </form>
 </ion-content>
