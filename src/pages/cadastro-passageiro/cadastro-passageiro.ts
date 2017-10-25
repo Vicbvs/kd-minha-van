@@ -1,5 +1,4 @@
 import { AuthProvider } from './../../providers/auth/auth';
-import { Observable } from 'rxjs/Observable';
 import { Usuario } from './../../models/usuario.model';
 import { UsuarioProvider } from './../../providers/usuario/usuario';
 import { Component } from '@angular/core';
