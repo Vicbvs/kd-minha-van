@@ -21,4 +21,8 @@ export class AuthProvider {
         return authState != null;
       }).catch(res => console.log(res))
   }
+
+  logOut() {
+    return this.fbAuth.auth.signOut();
+  }
 }
