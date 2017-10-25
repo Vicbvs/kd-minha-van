@@ -1,3 +1,4 @@
+import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -26,12 +27,13 @@ import { AuthProvider } from '../providers/auth/auth';
     MyApp,
   ],
   providers: [
+    AngularFireAuth,
+    AngularFireDatabase,
+    AuthProvider,
     UsuarioProvider,
     StatusBar,
     SplashScreen,
-    AngularFireDatabase,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthProvider,
   ]
 })
 export class AppModule {}

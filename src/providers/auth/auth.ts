@@ -2,17 +2,16 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
-/*
-  Generated class for the AuthProvider provider.
+import { AngularFireAuth } from 'angularfire2/auth';
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class AuthProvider {
 
-  constructor(public http: Http) {
+  constructor(public fbAuth: AngularFireAuth) {
     console.log('Hello AuthProvider Provider');
   }
 
+  adicionaUsuarioEmail(user: { email: string, senha: string }) {
+    return this.fbAuth.auth.createUserWithEmailAndPassword(user.email, user.senha);
+  }
 }

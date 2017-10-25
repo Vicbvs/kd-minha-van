@@ -1,3 +1,4 @@
+import { AuthProvider } from './../../providers/auth/auth';
 import { Observable } from 'rxjs/Observable';
 import { Usuario } from './../../models/usuario.model';
 import { UsuarioProvider } from './../../providers/usuario/usuario';
@@ -21,12 +22,13 @@ export class CadastroPassageiroPage {
 
   formCadastro: FormGroup;
 
-    users: Observable<Usuario[]>
+  users: Observable<Usuario[]>
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public formBuilder: FormBuilder,
-    public userService: UsuarioProvider) {
+    public userService: UsuarioProvider,
+    public authService: AuthProvider) {
 
     let emailReg = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
 
@@ -39,12 +41,20 @@ export class CadastroPassageiroPage {
     });
   }
   fazerCadastro() {
-    this.userService.criaUsuario(this.formCadastro.value)
-      .then(() => console.log("Usuario criado"))
+    let usuario: Usuario = this.formCadastro.value;
+
+    // Cria usuario com email e senha
+    this.authService.adicionaUsuarioEmail({
+      email: usuario.email,
+      senha: usuario.senha
+    }) //Adiciona no banco depois de criar
+      .then(() => {
+        this.userService.criaUsuario(this.formCadastro.value)
+      })
   }
 
-  ionViewDidLoad(){
-   this.users = this.userService.listaUsuarios;
+  ionViewDidLoad() {
+    this.users = this.userService.listaUsuarios;
   }
 
 }
