@@ -22,8 +22,6 @@ export class CadastroPassageiroPage {
 
   formCadastro: FormGroup;
 
-  users: Observable<Usuario[]>
-
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
     public formBuilder: FormBuilder,
@@ -58,7 +56,7 @@ export class CadastroPassageiroPage {
   }
 
   ionViewDidLoad() {
-    this.users = this.userService.listaUsuarios;
+
   }
 
 }
