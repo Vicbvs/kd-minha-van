@@ -14,13 +14,15 @@ import { AngularFireDatabase } from 'angularfire2/database';
 @Injectable()
 export class UsuarioProvider {
 
-  user: Observable<Usuario[]>;
+  listaUsuarios: Observable<Usuario[]>;
   
+  usuario = this.afDb.list('usuario');
+
   constructor(public afDb: AngularFireDatabase) {
-    console.log('Hello UsuarioProvider Provider');
+    this.listaUsuarios = this.usuario.valueChanges();
   }
 
   criaUsuario(user: Usuario) {
-    return this.afDb.list(`usuario`).push(user);
+    return this.usuario.push(user)
   }
 }
