@@ -10,6 +10,7 @@ import { AngularFireModule } from 'angularfire2';
 
 import { MyApp } from './app.component';
 import { UsuarioProvider } from '../providers/usuario/usuario';
+import { AuthProvider } from '../providers/auth/auth';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { UsuarioProvider } from '../providers/usuario/usuario';
     SplashScreen,
     AngularFireDatabase,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
+    AuthProvider,
   ]
 })
 export class AppModule {}
