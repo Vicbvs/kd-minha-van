@@ -1,3 +1,4 @@
+import { AngularFireDatabase } from 'angularfire2/database';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -24,10 +25,11 @@ import { UsuarioProvider } from '../providers/usuario/usuario';
     MyApp,
   ],
   providers: [
+    UsuarioProvider,
     StatusBar,
     SplashScreen,
+    AngularFireDatabase,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UsuarioProvider
   ]
 })
 export class AppModule {}

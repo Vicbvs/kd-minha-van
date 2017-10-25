@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import { Observable } from 'rxjs/Observable';
@@ -15,9 +14,9 @@ import { AngularFireDatabase } from 'angularfire2/database';
 @Injectable()
 export class UsuarioProvider {
 
-  
   user: Observable<Usuario[]>;
-  constructor(public http: Http, public afDb: AngularFireDatabase) {
+  
+  constructor(public afDb: AngularFireDatabase) {
     console.log('Hello UsuarioProvider Provider');
   }
 

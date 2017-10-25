@@ -1,3 +1,4 @@
+import { UsuarioProvider } from './../../providers/usuario/usuario';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -21,7 +22,8 @@ export class CadastroPassageiroPage {
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
-    public formBuilder: FormBuilder) {
+    public formBuilder: FormBuilder,
+    public userService: UsuarioProvider) {
 
     let emailReg = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
 
@@ -34,8 +36,8 @@ export class CadastroPassageiroPage {
     });
   }
   fazerCadastro() {
-    console.log(this.formCadastro.value);
-    
+    this.userService.criaUsuario(this.formCadastro.value)
+      .then(() => console.log("Usuario criado"))
   }
 
 }
