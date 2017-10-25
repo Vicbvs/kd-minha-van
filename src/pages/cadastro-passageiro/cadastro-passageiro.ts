@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs/Observable';
+import { Usuario } from './../../models/usuario.model';
 import { UsuarioProvider } from './../../providers/usuario/usuario';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -19,6 +21,7 @@ export class CadastroPassageiroPage {
 
   formCadastro: FormGroup;
 
+    users: Observable<Usuario[]>
 
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -38,6 +41,10 @@ export class CadastroPassageiroPage {
   fazerCadastro() {
     this.userService.criaUsuario(this.formCadastro.value)
       .then(() => console.log("Usuario criado"))
+  }
+
+  ionViewDidLoad(){
+   this.users = this.userService.listaUsuarios;
   }
 
 }

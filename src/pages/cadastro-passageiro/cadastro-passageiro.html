@@ -20,7 +20,7 @@
 
     <ion-item>
       <ion-label>Telefone: </ion-label>
-      <ion-input type="tel" name="telefone"formControlName="telefone"></ion-input>
+      <ion-input type="tel" name="telefone" formControlName="telefone"></ion-input>
     </ion-item>
 
     <ion-item>
@@ -31,4 +31,11 @@
       <button ion-button block type="submit" [disabled]="formCadastro.invalid">Cadastrar</button>
     </p>
   </form>
+  <p>
+    <ion-list>
+      <button ion-item *ngFor="let usuario of users | async">
+        {{ usuario.nome }}
+      </button>
+    </ion-list>
+  </p>
 </ion-content>
