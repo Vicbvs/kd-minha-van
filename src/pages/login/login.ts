@@ -24,6 +24,19 @@ export class LoginPage {
     public formBuilder: FormBuilder,
     public authService: AuthProvider) {
 
+    // Verifica se já está logado
+
+    this.authService.fbAuth.authState.subscribe(
+      logado => {
+        if (logado) {
+          console.log(logado.email);
+          this.navCtrl.setRoot('PassageiroInicialPage', { nome: logado.email })
+        }
+      }
+    );
+
+
+    // Validacao formulario login
     let emailReg = /^[a-z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*$/i;
 
     this.formLogin = this.formBuilder.group({
@@ -49,5 +62,4 @@ export class LoginPage {
       })
       .catch(res => console.log(res))
   }
-
 }

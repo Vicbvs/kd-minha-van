@@ -1,3 +1,4 @@
+import { AuthProvider } from './../../providers/auth/auth';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
@@ -17,11 +18,15 @@ export class PassageiroInicialPage {
 
   nome: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public authService: AuthProvider) {
   }
 
   ionViewDidLoad() {
     this.nome = this.navParams.get('nome');
   }
-
+  logOut() {
+    this.authService.logOut()
+      .then(() => this.navCtrl.setRoot('LoginPage'))
+      .catch(erro => console.log(erro))
+  }
 }
