@@ -1,18 +1,54 @@
-<!--
-  Generated template for the ListaUsuariosPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>listaUsuarios</ion-title>
+    <ion-title>Busca de serviços</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <ion-card>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/imgs/van.png">
+      </ion-avatar>
+      <h2>Mauricio's Van</h2>
+      <p>Sprinter</p>
+    </ion-item>
+
+    <ion-card-content>
+      <p>Serviço de excelência a 15 anos no mercado. Sprinter com: Ar condicionado, teto alto, Tv Digital.</p>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small (click)="curtir()">
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>{{curtidas}} Curtidas</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>4 Comentários</div>
+        </button>
+      </ion-col>
+      <ion-col center text-center>
+        <ion-note>
+          3 Dias atrás
+        </ion-note>
+      </ion-col>
+      <ion-item>
+        <a ion-button block icon-right href="tel:988014089">
+          Ligar para Mauricio's Van 
+          <ion-icon name="call"></ion-icon>
+        </a>
+      </ion-item>
+    </ion-row>
+
+  </ion-card>
 
 </ion-content>

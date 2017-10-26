@@ -15,11 +15,17 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ListaUsuariosPage {
 
+  curtidas: number = 12;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListaUsuariosPage');
+  }
+
+  curtir() {
+    return ++this.curtidas;
   }
 
 }

@@ -7,7 +7,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 export class AuthProvider {
 
   constructor(public fbAuth: AngularFireAuth) {
-    console.log('Hello AuthProvider Provider');
+    console.log(this.verificaLogin());
   }
 
   adicionaUsuarioEmail(user: { email: string, senha: string }) {
@@ -23,5 +23,11 @@ export class AuthProvider {
 
   logOut() {
     return this.fbAuth.auth.signOut();
+  }
+  verificaLogin() {
+    this.fbAuth.authState.subscribe((logado) => {
+      logado.getToken?true:false
+      console.log(logado)
+    });
   }
 }
