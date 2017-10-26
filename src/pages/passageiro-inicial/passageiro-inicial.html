@@ -9,7 +9,7 @@
   <ion-navbar>
     <ion-title>Olá {{nome}}</ion-title>
     <ion-buttons end>
-      <button ion-button (click)="logOut()">
+      <button ion-button icon-only (click)="logOut()">
         <ion-icon name="exit"></ion-icon>
       </button>
     </ion-buttons>
@@ -17,7 +17,15 @@
 
 </ion-header>
 
-
 <ion-content padding>
-
+<h3>Você ainda não tem nenhuma van cadastrada.</h3>
+<hr/>
+<h4>Se você já contratou um serviço você pode</h4>
+<p>
+  <button ion-button block>Adicionar minha Van</button>
+</p>
+<h4>Se ainda não tem um serviço contratado, você pode</h4>
+<p>
+  <button ion-button block navPush="ListaUsuariosPage">Procurar serviço Van</button>
+</p>
 </ion-content>
